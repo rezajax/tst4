@@ -3,6 +3,7 @@
  */
 
 plugins {
+//    id("tst4.app.HelloPlugin")
     id("tst4.kotlin-application-conventions")
     id("io.gitlab.arturbosch.detekt") version "1.23.6"
 
@@ -15,8 +16,24 @@ detekt {
 //    config = files("config/detekt/detekt.yml")
 }
 
+// Define a 'HelloPlugin' plugin
+class HelloPlugin : Plugin<Project> {
+    override fun apply(project: Project) {
+        // Define the 'hello' task
+        val helloTask = project.tasks.register("hello") {
+            doLast {
+                println("Hello, Gradle!")
+            }
+        }
+    }
+}
+
+
+
 dependencies {
     implementation("org.apache.commons:commons-text")
+//    id("org.springframework.boot") version "3.1.5"
+
     //    implementation("dev.detekt:detekt-api:1.23.6")
 //    implementation("io.gitlab.arturbosch.detekt:io.gitlab.arturbosch.detekt.gradle.plugin:1.23.6")
     implementation(project(":utilities"))
@@ -36,6 +53,10 @@ tasks.register("rez") {
     println("root proj name is: ${rootProject.name}")
     println("this proj name is: ${project.name}")
     println(projectDir)
+    println("hi")
+    var ch = HelloPlugin()
+//    ch.apply(project)
+
 }
 
 tasks.register<JavaExec>("sepi") {
