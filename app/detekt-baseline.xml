@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>FunctionOnlyReturningConstant:MessageUtils.kt$MessageUtils.Companion$fun getMessage(): String</ID>
+    <ID>PackageNaming:App.kt$package tst4.app</ID>
+    <ID>PackageNaming:MessageUtils.kt$package tst4.app</ID>
+    <ID>PackageNaming:MessageUtilsTest.kt$package tst4.app</ID>
+    <ID>UtilityClassWithPublicConstructor:MessageUtils.kt$MessageUtils</ID>
+  </CurrentIssues>
+</SmellBaseline>
