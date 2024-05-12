@@ -4,14 +4,52 @@
 
 plugins {
     id("tst4.kotlin-application-conventions")
+    id("io.gitlab.arturbosch.detekt") version "1.23.6"
+
+    application
+    id("java-library")
+//    kotlin ("multiplatform") version "1.9.24"
+}
+
+detekt {
+//    config = files("config/detekt/detekt.yml")
 }
 
 dependencies {
     implementation("org.apache.commons:commons-text")
+    //    implementation("dev.detekt:detekt-api:1.23.6")
+//    implementation("io.gitlab.arturbosch.detekt:io.gitlab.arturbosch.detekt.gradle.plugin:1.23.6")
     implementation(project(":utilities"))
 }
 
 application {
     // Define the main class for the application.
     mainClass.set("tst4.app.AppKt")
+//    mainClass = "tst4.app.AppKt"
+//    mainClass = ("tst4.app.AppKt")
+
+}
+
+
+tasks.register("rez") {
+    println("im rezajax i working on gradle tasks")
+    println("root proj name is: ${rootProject.name}")
+    println("this proj name is: ${project.name}")
+    println(projectDir)
+}
+
+tasks.register<JavaExec>("sepi") {
+//    args("sepi")
+//    println(args)
+    println("im sepi")
+}
+
+val myArg: String by project // Command line argument is always a part of project
+
+tasks.register("myTask") {
+    doFirst {
+        if (project.hasProperty("myArg")) {
+            println(myArg)
+        }
+    }
 }
