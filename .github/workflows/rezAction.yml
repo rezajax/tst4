@@ -16,15 +16,11 @@ jobs:
       - name: run rez Function
         run: ./gradlew rez
 
-    example-job:
-      name: Save output
-      runs-on: ubuntu-latest
-      steps:
-        - shell: bash
-          run: |
-            expr 1 + 1 > output.log
-        - name: Upload output file
-          uses: actions/upload-artifact@v4
-          with:
-            name: output-log-file
-            path: output.log
+      - shell: bash
+        run: |
+          expr 1 + 1 > output.log
+      - name: Upload output file
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-log-file
+          path: output.log
