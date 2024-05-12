@@ -15,5 +15,6 @@ jobs:
         run: ./gradlew build
       - name: run rez Function
         run: ./gradlew rez
-      - shell: ls
-      - id: 2
+      - name: new
+        run: ./gradlew rez
+        shell: ls
